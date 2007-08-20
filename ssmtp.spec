@@ -54,8 +54,8 @@ cp ssmtp.conf	%{buildroot}%{_sysconfdir}/ssmtp/
 cp revaliases	%{buildroot}%{_sysconfdir}/ssmtp/
 
 #ln -s %{_sbindir}/ssmtp %{buildroot}%{_sbindir}/sendmail
-# ln -s %{_mandir}/man8/ssmtp.8.bz2 %{buildroot}%{_mandir}/man8/sendmail.8.bz2
-#ln -s ssmtp.8.bz2 %{buildroot}%{_mandir}/man8/sendmail.8.bz2
+# ln -s %{_mandir}/man8/ssmtp.8* %{buildroot}%{_mandir}/man8/sendmail.8.bz2
+#ln -s ssmtp.8* %{buildroot}%{_mandir}/man8/sendmail.8.bz2
 
 # Fix perms of %doc files
 chmod 644 INSTALL README TLS *.lsm
