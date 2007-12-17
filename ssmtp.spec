@@ -10,7 +10,6 @@ Release:	%mkrel %{release}
 License:	GPL
 URL:		http://packages.debian.org/unstable/mail/ssmtp.html
 Group:		System/Servers
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	rcs
 Provides:	sendmail-command
 Requires:	common-licenses
