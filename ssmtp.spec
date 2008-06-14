@@ -1,7 +1,7 @@
 %define	name		ssmtp
-%define	version		2.61
+%define	version		2.62
 %define	release		1
-%define	src_version	2.61
+%define	src_version	2.62
 
 Summary:	A minimal mail-transfer agent which forwards mail to an SMTP server
 Name:		%{name}
@@ -26,7 +26,7 @@ program accepts mail and sends it to the mailhub, optionally replacing the
 domain in the From: line with a different one.
 
 %prep
-%setup -q -n %{name}-%{src_version}
+%setup -q -n %{name}
 # this has to be %patch but it does not work with -g option :(
 #%{_bzip2bin} -d < %PATCH0 | patch -p1 -g0 -s
 #PATCH_GET=0
