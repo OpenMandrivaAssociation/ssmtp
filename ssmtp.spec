@@ -1,6 +1,6 @@
 %define	name		ssmtp
 %define	version		2.62
-%define	release		1
+%define	release		2
 %define	src_version	2.62
 
 Summary:	A minimal mail-transfer agent which forwards mail to an SMTP server
