@@ -17,6 +17,7 @@ Requires:	common-licenses
 
 Source:		http://ftp.debian.org/debian/pool/main/s/ssmtp/%{name}_%{version}.tar.bz2
 Patch0:		ssmtp-2.50.3-maxsysuid.patch
+Patch1:		ssmtp-CVE-2008-3962.patch
 
 %description
 This is sSMTP, a program that replaces sendmail on workstations that
@@ -27,6 +28,7 @@ domain in the From: line with a different one.
 
 %prep
 %setup -q -n %{name}
+%patch1 -p1 -b .CVE-2008-3962
 # this has to be %patch but it does not work with -g option :(
 #%{_bzip2bin} -d < %PATCH0 | patch -p1 -g0 -s
 #PATCH_GET=0
