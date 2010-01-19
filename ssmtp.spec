@@ -66,7 +66,8 @@ chmod 644 INSTALL README TLS *.lsm
 rm -fr %{buildroot}
 
 %post
-update-alternatives --install %{_sbindir}/sendmail sendmail-command %{_sbindir}/ssmtp 5
+update-alternatives --install %{_sbindir}/sendmail sendmail-command %{_sbindir}/ssmtp 5 --slave %{_prefix}/lib/sendmail sendmail-command-in_libdir %{_sbindir}/ssmtp
+
 
 %preun
 if [ $1 = 0 ]; then
