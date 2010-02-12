@@ -1,6 +1,6 @@
 %define	name		ssmtp
 %define	version		2.64
-%define	release		1
+%define	release		2
 %define	src_version	2.64
 
 Summary:	A minimal mail-transfer agent which forwards mail to an SMTP server
@@ -40,19 +40,15 @@ perl -pi -e 's|etcdir=\$\(prefix\)/etc|etcdir=\@sysconfdir\@|' Makefile.in
 %install
 rm -fr %{buildroot}
 
-mkdir -p %{buildroot}{%{_sbindir},%{_mandir}/man8,%{_sysconfdir}/ssmtp}
-
-cp ssmtp	%{buildroot}%{_sbindir}/
-cp ssmtp.8	%{buildroot}%{_mandir}/man8/
-cp ssmtp.conf	%{buildroot}%{_sysconfdir}/ssmtp/
-cp revaliases	%{buildroot}%{_sysconfdir}/ssmtp/
+install -D -m 755 ssmtp		%{buildroot}%{_sbindir}/ssmtp
+install -D -m 644 ssmtp.conf	%{buildroot}%{_sysconfdir}/ssmtp/ssmtp.conf
+install -D -m 644 revaliases	%{buildroot}%{_sysconfdir}/ssmtp/revaliases
+install -D -m 644 ssmtp.conf.5	%{buildroot}%{_mandir}/man5/ssmtp.conf.5
+install -D -m 644 ssmtp.8	%{buildroot}%{_mandir}/man8/ssmtp.8
 
 #ln -s %{_sbindir}/ssmtp %{buildroot}%{_sbindir}/sendmail
 # ln -s %{_mandir}/man8/ssmtp.8.bz2 %{buildroot}%{_mandir}/man8/sendmail.8.bz2
 #ln -s ssmtp.8.bz2 %{buildroot}%{_mandir}/man8/sendmail.8.bz2
-
-# Fix perms of %doc files
-chmod 644 INSTALL README TLS *.lsm
 
 %clean
 rm -fr %{buildroot}
@@ -69,14 +65,9 @@ fi
 
 %files
 %defattr(-,root,root)
-%doc INSTALL README TLS *.lsm
-
-%doc %attr(0644, root, root) %{_mandir}/man8/ssmtp.8*
-#%doc %{_mandir}/man8/sendmail.8*
-
-%attr(0755, root, root) %config(noreplace) %dir %{_sysconfdir}/ssmtp
-%attr(0644, root, root) %config(noreplace) %{_sysconfdir}/ssmtp/*
-
-%attr(0755, root, root) %{_sbindir}/ssmtp
-
-
+%doc %attr(0644, root, root) INSTALL README ChangeLog CHANGELOG_OLD COPYRIGHT TLS *.lsm
+%{_sbindir}/ssmtp
+%{_sysconfdir}/ssmtp/ssmtp.conf
+%{_sysconfdir}/ssmtp/revaliases
+%{_mandir}/man8/*
+%{_mandir}/man5/*
