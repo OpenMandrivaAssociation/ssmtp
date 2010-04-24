@@ -1,6 +1,6 @@
 %define	name		ssmtp
 %define	version		2.64
-%define	release		2
+%define	release		3
 %define	src_version	2.64
 
 Summary:	A minimal mail-transfer agent which forwards mail to an SMTP server
@@ -34,7 +34,7 @@ perl -pi -e 's|etcdir=\$\(prefix\)/etc|etcdir=\@sysconfdir\@|' Makefile.in
 
 %build
 %serverbuild
-%configure
+%configure --enable-ssl --enable-md5auth
 %make
 
 %install
