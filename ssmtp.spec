@@ -1,6 +1,6 @@
 %define	name		ssmtp
 %define	version		2.64
-%define	release		3
+%define	release		4
 %define	src_version	2.64
 
 Summary:	A minimal mail-transfer agent which forwards mail to an SMTP server
@@ -47,6 +47,9 @@ install -D -m 644 revaliases	%{buildroot}%{_sysconfdir}/ssmtp/revaliases
 install -D -m 644 ssmtp.conf.5	%{buildroot}%{_mandir}/man5/ssmtp.conf.5
 install -D -m 644 ssmtp.8	%{buildroot}%{_mandir}/man8/ssmtp.8
 
+# fix doc permissions:
+chmod 644 INSTALL README ChangeLog CHANGELOG_OLD COPYRIGHT TLS *.lsm
+
 #ln -s %{_sbindir}/ssmtp %{buildroot}%{_sbindir}/sendmail
 # ln -s %{_mandir}/man8/ssmtp.8.bz2 %{buildroot}%{_mandir}/man8/sendmail.8.bz2
 #ln -s ssmtp.8.bz2 %{buildroot}%{_mandir}/man8/sendmail.8.bz2
@@ -66,9 +69,9 @@ fi
 
 %files
 %defattr(-,root,root)
-%doc %attr(0644, root, root) INSTALL README ChangeLog CHANGELOG_OLD COPYRIGHT TLS *.lsm
+%doc INSTALL README ChangeLog CHANGELOG_OLD COPYRIGHT TLS *.lsm 
 %{_sbindir}/ssmtp
-%{_sysconfdir}/ssmtp/ssmtp.conf
-%{_sysconfdir}/ssmtp/revaliases
+%config(noreplace) %dir %{_sysconfdir}/ssmtp
+%config(noreplace) %{_sysconfdir}/ssmtp/*
 %{_mandir}/man8/*
 %{_mandir}/man5/*
