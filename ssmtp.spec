@@ -3,7 +3,7 @@
 Summary:	A minimal mail-transfer agent which forwards mail to an SMTP server
 Name:		ssmtp
 Version:	2.64
-Release:	6
+Release:	7
 License:	GPL
 URL:		http://packages.debian.org/unstable/mail/ssmtp.html
 Group:		System/Servers
