@@ -5,7 +5,7 @@ Name:		ssmtp
 Version:	2.64
 Release:	7
 License:	GPL
-URL:		http://packages.debian.org/unstable/mail/ssmtp.html
+URL:		https://packages.debian.org/unstable/mail/ssmtp.html
 Group:		System/Servers
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	rcs
