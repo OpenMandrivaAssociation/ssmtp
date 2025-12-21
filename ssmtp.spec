@@ -8,6 +8,11 @@ License:	GPL
 URL:		https://packages.debian.org/unstable/mail/ssmtp.html
 Group:		System/Servers
 BuildRoot:	%{_tmppath}/%{name}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	rcs
 BuildRequires:	openssl-devel
 Provides:	sendmail-command
